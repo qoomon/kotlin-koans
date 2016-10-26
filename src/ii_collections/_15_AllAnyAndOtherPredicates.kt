@@ -14,19 +14,23 @@ fun example2(list: List<Int>) {
 }
 
 fun Customer.isFrom(city: City): Boolean {
-    return this.city.equals(city)
+    // Return true if the customer is from the given city
+    return this.city == city
 }
 
 fun Shop.checkAllCustomersAreFrom(city: City): Boolean {
-    return getSetOfCustomers().all { it.isFrom(city) }
+    // Return true if all customers are from the given city
+    return customers.all { it.isFrom(city) }
 }
 
 fun Shop.hasCustomerFrom(city: City): Boolean {
-    return getSetOfCustomers().any { it.isFrom(city) }
+    // Return true if there is at least one customer from the given city
+    return customers.any { it.isFrom(city) }
 }
 
 fun Shop.countCustomersFrom(city: City): Int {
-    return getSetOfCustomers().count { it.isFrom(city) }
+    // Return the number of customers from the given city
+    return customers.count { it.isFrom(city) }
 }
 
 fun Shop.findAnyCustomerFrom(city: City): Customer? {
